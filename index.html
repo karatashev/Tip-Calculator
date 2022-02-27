@@ -17,29 +17,29 @@
   <h2>Tip Calculator</h2>
   <div class="calculator-wrapper w-80">
     <h4>Bill</h4>
-    <input type="number" name="sum" id="sum" placeholder="Sum" required>
+    <input type="number" name="sum" id="sum" placeholder="0" min="0" required>
     <br>
-    <h4>Select tip %</h4>
+    <h4>Select tip %</h4> 
     <div class="grid-select-percent">
      
-        <button class="btn-percent">5%</button>
-        <button class="btn-percent">10%</button>
-        <button class="btn-percent">15%</button>
-        <button class="btn-percent">25%</button>
-        <button class="btn-percent">50%</button>
-        <input type="text" name="custom" id="custom" class="btn-percent" placeholder="Custom">
+        <button type="button" id="five" class="btn-percent">5%</button>
+        <button type="button" id="ten" class="btn-percent">10%</button>
+        <button type="button" id="fifteen"class="btn-percent">15%</button>
+        <button type="button" id="twentyfive" class="btn-percent">25%</button>
+        <button type="button" id="fifty" class="btn-percent">50%</button>
+        <input type="number" name="custom" id="custom" class="btn-percent" placeholder="Custom">
        
        
     </div>
-    <h4>Number of People</h4>
-    <input type="number" name="people" id="people" placeholder="1" min="1">
+    <h4>Number of People <span>Can't be 0</span></h4>
+    <input type="number" name="people" id="people" placeholder="0" min="0" max="1000" required>
 
     <div class="total-amount-square">
     <div class="grid-amount-wrapper">
       <div class="tip-amount">Tip Amount <br><small class="small">/ person</small></div>
-      <div class="amount-per-person">$4.27</div>
+      <div class="amount-per-person">$0.00</div>
       <div class="total">Total <br><small class="small">/ person</small></div>
-      <div class="total-tip">$32.79</div>
+      <div class="total-tip">$00.00</div>
     </div>
       <div>
         <button class="btn-reset">RESET</button>
@@ -48,5 +48,6 @@
     </div>
   </div>
   
+  <script src="/script.js"></script>
 </body>
 </html>

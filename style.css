@@ -12,6 +12,7 @@ body {
   text-align: center;
 }
 
+
 .w-80 {
   width: 80%;
 }
@@ -28,8 +29,8 @@ h4 {
   --fw-reg: 400;
   --fw-bold: 700;
 
-  --clr-strong-cyan: hsl(172, 67%, 45%);
-  --clr-dark-cyan: hsl(183, 100%, 15%);
+  --clr-strong-cyan: #26c0ab;
+  --clr-dark-cyan: #00494d;
   --clr-dark-gray-cyan: hsl(186, 14%, 43%);
   --clr-dark-grayish-cyan: hsl(184, 14%, 56%);
   --clr-light-grayish-cyan: hsl(185, 41%, 84%);
@@ -38,7 +39,7 @@ h4 {
 
   --fs-input: 24px;
   --fs-h2: 12px;
-  --fs-percents: 18px;
+  --fs-percents: 20px;
   --fs-big-percents: 20px;
 
   /* --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
@@ -97,6 +98,19 @@ h4 {
   padding-right: 10px;
 }
 
+h4 span {
+  display: none;
+}
+
+/* enable when value 0 */
+h4 span.empty {
+  display: inline;
+  color: red;
+  position: absolute;
+  right: 0;
+}
+
+
 .grid-select-percent {
   display: grid;
   grid-template-columns: 48% 48%;
@@ -104,7 +118,6 @@ h4 {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
-  
 }
 
 .btn-percent {
@@ -120,6 +133,12 @@ h4 {
 
 .btn-percent:active,
 .btn-percent:focus {
+  background-color: var(--clr-strong-cyan);
+  color: var(--clr-dark-cyan);
+}
+
+/* enable on click */
+.grid-select-percent > button.click {
   background-color: var(--clr-strong-cyan);
   color: var(--clr-dark-cyan);
 }
