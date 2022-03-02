@@ -12,11 +12,43 @@ const fifty = document.getElementById('fifty');
 const displayTipPerPerson = document.querySelector('.amount-per-person');
 const displayTip = document.querySelector('.total-tip');
 const resetBtn = document.querySelector('.btn-reset');
-const alert = document.querySelector('h4 span');
+const alertMsg = document.querySelector('h4 span');
 
 let sumAmount, numOfPeople, customPercent, totalTip, totalTipPerPerson;
 
-//to choose the tip & the percent btns to stay active
+
+//-------------------Reset Btn --------------------->
+function RESET() {
+  sumInput.value = "";
+  peopleInput.value = ""; 
+  peopleInput.classList.remove("empty");
+  customPercentInput.value = "";
+  percentButtons.forEach(btn => {
+    btn.classList.remove("click")
+  });
+  displayTip.textContent = "$0.00";
+  displayTipPerPerson.textContent = "$0.00";
+  alertMsg.classList.remove("empty");
+
+}
+
+//-------------Activate Reset Btn------------------->
+sumInput.addEventListener("change", () => {
+  sumAmount = Number(sumInput.value);
+  numOfPeople = Number(peopleInput.value);
+
+  if (sumAmount !== 0) {
+    resetBtn.removeAttribute("disabled");
+  }
+
+  if (numOfPeople === 0)  {
+    alertMsg.classList.add("empty");
+    peopleInput.classList.add("empty");
+  }
+});
+
+
+//--------------Select percent btns & activate----->
 const percentButtons = [five, ten, fifteen, twentyfive, fifty, customPercentInput];
 let percent = 0;
 
@@ -30,9 +62,22 @@ percentButtons.forEach( btn => {
   });
 })
 
-//Calculate the TIP total and per person 
+//-------------Validate number of people--------->
+peopleInput.addEventListener("change", () => {
+  numOfPeople = Number(peopleInput.value);
+  if (numOfPeople !== 0) {
+    alertMsg.classList.remove("empty");
+    peopleInput.classList.remove("empty");
+  } else if (numOfPeople === 0) {
+    alertMsg.classList.add("empty");
+    peopleInput.classList.add("empty");
+  }
+});
+
+
+//-------------Calculate total tip & per person----->
 document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('change', () => { // change event is fired when input element         value is committed by the user
+  input.addEventListener('change', () => { // change event is fired when input element value is committed by the user
 
     sumAmount = Number(sumInput.value);
     numOfPeople = Number(peopleInput.value);
@@ -40,7 +85,7 @@ document.querySelectorAll('input').forEach(input => {
 
     if (customPercent > 100) {
       alert("Percentage can't be more than 100!")
-      // resetBtn();
+      RESET();
     }
 
     if (percent === 0) {
@@ -53,6 +98,7 @@ document.querySelectorAll('input').forEach(input => {
 
       displayTip.textContent = '$' + totalTip.toFixed(2); //amount with 2 decimals
       displayTipPerPerson.textContent = '$' + totalTipPerPerson.toFixed(2) //amount with 2 decimals
+
     }
   });
 });

@@ -1,53 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tip Calculator</title>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-</head>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
   <!-- Font awesome icons -->
-  <script src="https://kit.fontawesome.com/7d5792ba1e.js" crossorigin="anonymous"></script>
+  <script
+    src="https://kit.fontawesome.com/7d5792ba1e.js"
+    crossorigin="anonymous"
+  ></script>
 
-<body>
-  <h2>Tip Calculator</h2>
-  <div class="calculator-wrapper w-80">
-    <h4>Bill</h4>
-    <input type="number" name="sum" id="sum" placeholder="0" min="0" required>
-    <br>
-    <h4>Select tip %</h4> 
-    <div class="grid-select-percent">
-     
+  <body>
+    <h2>Tip Calculator</h2>
+    <div class="calculator-wrapper w-80">
+  <!-- Sum form -->
+      <form class="form-sum">
+        <h4>Bill</h4>
+        <div class="inputWithIcon">
+        <input
+          type="number"
+          class="input-field"
+          name="sum"
+          id="sum"
+          placeholder="0"
+          min="0"
+          required
+        />
+        <i class="fa-solid fa-dollar-sign"></i>
+        </div>
+      </form>
+      <br />
+  <!-- Percent buttons -->
+      <form class="form-percent">
+      <h4>Select tip %</h4>
+      <div class="grid-select-percent">
         <button type="button" id="five" class="btn-percent">5%</button>
         <button type="button" id="ten" class="btn-percent">10%</button>
-        <button type="button" id="fifteen"class="btn-percent">15%</button>
+        <button type="button" id="fifteen" class="btn-percent">15%</button>
         <button type="button" id="twentyfive" class="btn-percent">25%</button>
         <button type="button" id="fifty" class="btn-percent">50%</button>
-        <input type="number" name="custom" id="custom" class="btn-percent" placeholder="Custom">
-       
-       
-    </div>
-    <h4>Number of People <span>Can't be 0</span></h4>
-    <input type="number" name="people" id="people" placeholder="0" min="0" max="1000" required>
-
-    <div class="total-amount-square">
-    <div class="grid-amount-wrapper">
-      <div class="tip-amount">Tip Amount <br><small class="small">/ person</small></div>
-      <div class="amount-per-person">$0.00</div>
-      <div class="total">Total <br><small class="small">/ person</small></div>
-      <div class="total-tip">$00.00</div>
-    </div>
-      <div>
-        <button class="btn-reset">RESET</button>
+        <input
+          type="number"
+          name="custom"
+          id="custom"
+          class="btn-percent"
+          placeholder="Custom"
+        />
       </div>
+      </form>
 
+  <!-- Num of People form -->
+      <form class="form-people">
+      <h4>Number of People <span>Can't be 0</span></h4>
+      <div class="inputWithIcon">
+      <input
+        type="number"
+        name="people"
+        class="input-field"
+        id="people"
+        placeholder="0"
+        min="0"
+        max="1000"
+        required
+      />
+      <i class="fa-solid fa-user"></i>
+      </div>
+      </form>
+  <!-- Total tip -->
+      <div class="total-amount-square">
+        <div class="grid-amount-wrapper">
+          <div class="tip-amount">
+            Tip Amount <br /><small class="small">/ person</small>
+          </div>
+          <div class="amount-per-person">$0.00</div>
+          <div class="total">
+            Total <br /><small class="small">/ tip</small>
+          </div>
+          <div class="total-tip">$0.00</div>
+        </div>
+  <!-- Reset button -->
+        <div>
+          <button class="btn-reset" onclick="RESET()" value="reset" disabled>RESET</button>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <script src="/script.js"></script>
-</body>
+
+    design by <a href="https://www.frontendmentor.io/home">Frontend Mentor</a> <br> code by <a href="https://github.com/karatashev">karatashev</a>
+
+    <script src="/script.js"></script>
+  </body>
 </html>
